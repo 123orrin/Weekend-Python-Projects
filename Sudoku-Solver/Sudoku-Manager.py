@@ -197,4 +197,4 @@ def play_sudoku():
         print("See you later")
 
 if __name__ == '__main__':
-    play_sudoku(yeah)
+    play_sudoku()
