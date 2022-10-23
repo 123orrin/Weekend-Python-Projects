@@ -76,3 +76,16 @@ def run_similarity_test(filename, semantic_descriptors, similarity_fn):
         if most_similar_word(words[0], words[2:], semantic_descriptors, similarity_fn) == words[1]:
             passed_tests += 1
     return (passed_tests / tot_tests) * 100
+
+if __name__ == "__main__":
+    sentences = [["a", "bat", "flew"], ["a", "cat", "flew"]]
+    print(cosine_similarity({"a": 1, "b": 2, "c": 3}, {"b": 4, "c": 5, "d": 6}))
+    print(build_semantic_descriptors(sentences))
+    print("\n----")
+
+    # Update with your paths/text file names
+    data_paths = ["War-And-Peace.txt", "Swanns-Way.txt"]
+    test_path = "System-Test.txt"
+    descriptors = build_semantic_descriptors_from_files(data_paths)
+    res = run_similarity_test(test_path, descriptors, cosine_similarity)
+    print("Accuracy rate:", res)
