@@ -1,5 +1,5 @@
 # Word Recognition System
-This system uses the method of cosine-similarity to determine relationships between words. It was trained using historical literature from the Gutenburg Project and tested TOEFL Exams.
+This system uses the method of cosine-similarity to determine relationships between words. It was trained using historical literature from the [Gutenburg Project](https://www.gutenberg.org/) and tested [TOEFL](https://www.ets.org/toefl.html) Exams.
 
 The literature I used to test the books were:
   - [War and Peace](https://www.gutenberg.org/ebooks/2600), by Graf Leo Tolstoy
