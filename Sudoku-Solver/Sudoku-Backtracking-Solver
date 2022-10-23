@@ -1,0 +1,42 @@
+from sudoku import *
+import time
+
+"""
+SUDOKU BACKTRACKING ALGORITHM
+By Orrin Dahanaggamaarachchi
+
+GENERAL NOTES
+- User inputted rows and columns are indexed starting at 1
+- All other row and column computation is done with indexes starting at 0
+- Linecache starts its indexing at 1
+- MUST INCLUDE the sudoku_database.csv file to generate sudoku's
+    - Source: Kaggle by KYUBYONG PARK, https://www.kaggle.com/datasets/bryanpark/sudoku
+- Here is a simple board for debugging
+    - debugging_board = [1,2,3,4,5,6,7,8,9,4,5,6,7,8,9,1,2,3,7,8,9,1,2,3,4,5,6,2,3,4,5,6,7,8,9,1,5,6,7,8,9,1,2,3,4,8,9,1,2,3,4,5,6,7,3,4,5,6,7,8,9,1,2,6,7,8,9,1,2,3,4,5,9,1,2,3,4,5,6,7,8]
+
+REFERENCE
+ - Wikipedia: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms#Backtracking
+"""
+
+def backtracking(board, unchangeable):
+    i = 0
+    while i < 81:
+        if i in unchangeable:
+            continue
+        else:
+            increment = 1
+            while not check_game_rules(board[i] + increment, i, board):
+                increment += 1
+
+
+def find_valid_playable_location(unchangeable, location):
+    while location in unchangeable or b:
+        location -= 1
+
+
+if __name__ == '__main__':
+    board, unchangeable = create_board()
+    print_board(board)
+    board = backtracking(board, unchangeable)
+    print_board(board)
+    print("DONE")
