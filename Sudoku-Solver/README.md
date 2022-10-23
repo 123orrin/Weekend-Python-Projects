@@ -1,0 +1,4 @@
+# Sudoku Solver
+Sudoku solver is a project which implements the traditional game of Sudoku, as well as a variety of solvers. You can play the game yourself in the terminal, or watch the algorithm solve it for you. You can learn more about Sudoku using the link here: https://en.wikipedia.org/wiki/Sudoku. Likewise, you can learn more about sudoku solvers using the link here: https://en.wikipedia.org/wiki/Sudoku_solving_algorithms.
+
+Each time it is run, the program chooses 1 of 1 million sudokus using an opensource sudoku set on Kaggle (Created by Kyubyong Park, linked here: https://www.kaggle.com/datasets/bryanpark/sudoku. Currently, the only solver implemented is the backtracking solver. In the future, I hope to implement other types of solvers as well as a graphical user interface where the user can both play and visualize automatic solvers. 
