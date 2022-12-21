@@ -19,24 +19,38 @@ REFERENCE
 """
 
 def backtracking(board, unchangeable):
-    i = 0
-    while i < 81:
-        if i in unchangeable:
-            continue
+    location = find_not_unchangeable_location(0, unchangeable, direction='forward')
+    while location < 81:
+        num = board[location]
+        while not check_game_rules(num, location, board) and num < 10:
+            num += 1
+        if num < 10:
+            board[location] = num
+            location = location + 1
+            location = find_not_unchangeable_location(location, unchangeable, direction='forward')
         else:
-            increment = 1
-            while not check_game_rules(board[i] + increment, i, board):
-                increment += 1
+            board[location] = 0
+            location = location - 1
+            location = find_not_unchangeable_location(location, unchangeable, direction='backward')
 
 
-def find_valid_playable_location(unchangeable, location):
-    while location in unchangeable or b:
-        location -= 1
+
+def find_not_unchangeable_location(curr_location, unchangeable, direction):
+    add = -1
+    if direction == 'forward':
+        add = 1
+
+    while curr_location in unchangeable:
+        curr_location = curr_location + add
+    return curr_location
 
 
 if __name__ == '__main__':
     board, unchangeable = create_board()
+    print('\nUnsolved:')
     print_board(board)
-    board = backtracking(board, unchangeable)
+    print('\nSolved:')
+    backtracking(board, unchangeable)
     print_board(board)
     print("DONE")
+    
