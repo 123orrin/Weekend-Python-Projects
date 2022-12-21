@@ -33,8 +33,6 @@ def backtracking(board, unchangeable):
             location = location - 1
             location = find_not_unchangeable_location(location, unchangeable, direction='backward')
 
-
-
 def find_not_unchangeable_location(curr_location, unchangeable, direction):
     add = -1
     if direction == 'forward':
